@@ -1,14 +1,13 @@
 package com.tutorial.jpa.model;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
-@EqualsAndHashCode(callSuper = true)
 @Getter
 @Setter
 @AllArgsConstructor
@@ -16,14 +15,14 @@ import java.util.List;
 @Data
 @Entity
 @SuperBuilder
-public class Users extends BaseEntity{
+public class BaseEntity {
 
-    private String username;
-
-    private String email;
+    @Id
+    @GeneratedValue
+    private Long id;
 
     private LocalDateTime createdAt;
-
-    @OneToMany(mappedBy = "users")
-    private List<Orders> orders;
+    private LocalDateTime updatedAt;
+    private String createdBy;
+    private String updatedBy;
 }

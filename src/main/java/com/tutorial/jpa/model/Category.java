@@ -1,25 +1,21 @@
 package com.tutorial.jpa.model;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
-@Builder
-public class Category {
-
-    @Id
-    @GeneratedValue
-    private Long id;
+@SuperBuilder
+public class Category extends BaseEntity{
 
     private String name;
 

@@ -2,22 +2,20 @@ package com.tutorial.jpa.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
-@Builder
-public class Orders {
-
-    @Id
-    @GeneratedValue
-    private Long id;
+@SuperBuilder
+public class Orders extends BaseEntity{
 
     private LocalDateTime createdAt;
 

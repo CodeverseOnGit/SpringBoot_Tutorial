@@ -1,20 +1,21 @@
 package com.tutorial.jpa.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
+@EqualsAndHashCode(callSuper = true)
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
-@Builder
-public class OrderItem {
-
-    @Id
-    @GeneratedValue
-    private Long id;
+@SuperBuilder
+public class OrderItem extends BaseEntity{
 
     private Integer quantity;
 

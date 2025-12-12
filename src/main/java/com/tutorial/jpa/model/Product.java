@@ -2,22 +2,20 @@ package com.tutorial.jpa.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
-@Builder
-public class Product {
-
-    @Id
-    @GeneratedValue
-    private Long id;
+@SuperBuilder
+public class Product extends BaseEntity{
 
     private String name;
 
