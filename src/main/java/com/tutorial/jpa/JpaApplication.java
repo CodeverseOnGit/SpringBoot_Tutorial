@@ -1,6 +1,8 @@
 package com.tutorial.jpa;
 
+import com.tutorial.jpa.model.FoodProducts;
 import com.tutorial.jpa.model.Users;
+import com.tutorial.jpa.repository.FoodProductsRepository;
 import com.tutorial.jpa.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -14,14 +16,20 @@ public class JpaApplication {
 		SpringApplication.run(JpaApplication.class, args);
 	}
 
-    public CommandLineRunner commandLineRunner (UserRepository userRepository) {
+    @Bean
+    public CommandLineRunner commandLineRunner (UserRepository userRepository, FoodProductsRepository foodProductsRepository) {
         return args -> {
-            var user = Users.builder()
-                    .username("test")
-                    .email("test@test.com")
-                    .createdAt(java.time.LocalDateTime.now())
+//            var user = Users.builder()
+//                    .username("test")
+//                    .email("test@test.com")
+//                    .createdAt(java.time.LocalDateTime.now())
+//                    .build();
+//            userRepository.save(user);
+            var food = FoodProducts.builder()
+                    .name("Cheesecake")
+                    .price(324.2)
                     .build();
-            userRepository.save(user);
+            foodProductsRepository.save(food);
         };
     }
 }
