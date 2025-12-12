@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "USERS_TABLE")
+@Builder
 public class Users {
 
     @Id
@@ -23,15 +23,9 @@ public class Users {
     @GeneratedValue
     private Long id;
 
-    @Column(name = "USERNAME")
     private String username;
 
-    @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(updatable = false, nullable = false)
     private LocalDateTime createdAt;
-
-    @Column(insertable = false)
-    private LocalDateTime modifiedAt;
 }
