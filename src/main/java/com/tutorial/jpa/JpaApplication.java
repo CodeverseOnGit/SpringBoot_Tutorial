@@ -16,7 +16,6 @@ public class JpaApplication {
 		SpringApplication.run(JpaApplication.class, args);
 	}
 
-    @Bean
     public CommandLineRunner commandLineRunner (UserRepository userRepository, FoodProductsRepository foodProductsRepository) {
         return args -> {
 //            var user = Users.builder()
