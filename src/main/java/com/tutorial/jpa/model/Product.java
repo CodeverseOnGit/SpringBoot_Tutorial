@@ -7,7 +7,6 @@ import lombok.experimental.SuperBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
-@EqualsAndHashCode(callSuper = true)
 @Getter
 @Setter
 @AllArgsConstructor
@@ -15,7 +14,13 @@ import java.util.List;
 @Data
 @Entity
 @SuperBuilder
-public class Product extends BaseEntity{
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "product_type", discriminatorType = DiscriminatorType.STRING)
+public class Product{
+
+    @Id
+    @GeneratedValue
+    private Long id;
 
     private String name;
 
