@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -28,4 +29,7 @@ public class Users {
     private String email;
 
     private LocalDateTime createdAt;
+
+    @OneToMany(mappedBy = "users")
+    private List<Orders> orders;
 }
