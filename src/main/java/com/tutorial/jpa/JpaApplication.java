@@ -13,7 +13,7 @@ public class JpaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(JpaApplication.class, args);
 	}
-    @Bean
+
     public CommandLineRunner commandLineRunner (UserRepository userRepository) {
         return args -> {
             var user = Users.builder()
