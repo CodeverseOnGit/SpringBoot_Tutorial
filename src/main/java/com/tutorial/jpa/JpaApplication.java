@@ -1,5 +1,6 @@
 package com.tutorial.jpa;
 
+import com.github.javafaker.Faker;
 import com.tutorial.jpa.model.FoodProducts;
 import com.tutorial.jpa.model.Users;
 import com.tutorial.jpa.repository.FoodProductsRepository;
@@ -18,17 +19,20 @@ public class JpaApplication {
 
     public CommandLineRunner commandLineRunner (UserRepository userRepository, FoodProductsRepository foodProductsRepository) {
         return args -> {
-//            var user = Users.builder()
-//                    .username("test")
-//                    .email("test@test.com")
-//                    .createdAt(java.time.LocalDateTime.now())
+//            for(int i = 0; i<10; i++) {
+//                Faker faker = new Faker();
+//                var user = Users.builder()
+//                        .username(faker.name().username())
+//                        .email("test"+i+"@test.com")
+//                        .createdAt(java.time.LocalDateTime.now())
+//                        .build();
+//                userRepository.save(user);
+//            }
+//            var food = FoodProducts.builder()
+//                    .name("Cheesecake")
+//                    .price(324.2)
 //                    .build();
-//            userRepository.save(user);
-            var food = FoodProducts.builder()
-                    .name("Cheesecake")
-                    .price(324.2)
-                    .build();
-            foodProductsRepository.save(food);
+//            foodProductsRepository.save(food);
         };
     }
 }
