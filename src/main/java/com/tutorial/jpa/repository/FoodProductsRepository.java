@@ -11,6 +11,8 @@ import java.util.List;
 
 public interface FoodProductsRepository extends JpaRepository<FoodProducts,Long> {
 
+    @Modifying
+    @Transactional
     List<FoodProducts> findByIngredients(@Param("ingredients") String ingredients);
 
     @Modifying
