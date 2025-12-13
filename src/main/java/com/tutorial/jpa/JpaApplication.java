@@ -28,11 +28,14 @@ public class JpaApplication {
 //                        .build();
 //                userRepository.save(user);
 //            }
-//            var food = FoodProducts.builder()
-//                    .name("Cheesecake")
-//                    .price(324.2)
-//                    .build();
+            var food = FoodProducts.builder()
+                    .name("Cheesecake")
+                    .price(324.2)
+                    .expirationDate("2024-12-31")
+                    .build();
 //            foodProductsRepository.save(food);
+//            foodProductsRepository.updateFoodProduct(1,"1999-12-31");
+            foodProductsRepository.findByIngredients("Sugar");
         };
     }
 }
